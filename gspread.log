@@ -11,3 +11,611 @@ In [2]: import gspread
 In [3]: import gspread as gs
 
 In [4]: g = gs.login('')
+
+
+IPython 0.13.2 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import gspread
+
+In [2]: import gspread as g
+
+In [3]: import gspread as gs
+
+In [4]: g = gs.login()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-4-a2936d8848c5> in <module>()
+----> 1 g = gs.login()
+
+TypeError: login() takes exactly 2 arguments (0 given)
+
+In [5]: g = gs.login('gd.ghost.winner@gmail.com', 'angnjvaeodhirdds')
+
+In [6]: g.open_by_url("https://docs.google.com/spreadsheet/ccc?key=0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+---------------------------------------------------------------------------
+SpreadsheetNotFound                       Traceback (most recent call last)
+<ipython-input-6-2741fea295ac> in <module>()
+----> 1 g.open_by_url("https://docs.google.com/spreadsheet/ccc?key=0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_url(self, url)
+    173         m1 = _url_key_re_v1.search(url)
+    174         if m1:
+--> 175             return self.open_by_key(m1.group(1))
+    176 
+    177         else:
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    155 
+    156         else:
+--> 157             raise SpreadsheetNotFound
+    158 
+    159     def open_by_url(self, url):
+
+SpreadsheetNotFound: 
+
+In [7]: ggg = g.open_by_key("0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+---------------------------------------------------------------------------
+SpreadsheetNotFound                       Traceback (most recent call last)
+<ipython-input-7-bfb60223f783> in <module>()
+----> 1 ggg = g.open_by_key("0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    155 
+    156         else:
+--> 157             raise SpreadsheetNotFound
+    158 
+    159     def open_by_url(self, url):
+
+SpreadsheetNotFound: 
+
+In [8]: ggg = g.open_by_key("0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+---------------------------------------------------------------------------
+BadStatusLine                             Traceback (most recent call last)
+<ipython-input-8-bfb60223f783> in <module>()
+----> 1 ggg = g.open_by_key("0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE")
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    142 
+    143         """
+--> 144         feed = self.get_spreadsheets_feed()
+    145         for elem in feed.findall(_ns('entry')):
+    146             alter_link = finditem(lambda x: x.get('rel') == 'alternate',
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     70 
+     71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+---> 72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+     74         if response.status > 399:
+
+/usr/lib/python2.7/httplib.pyc in getresponse(self, buffering)
+   1043         response = self.response_class(*args, **kwds)
+   1044 
+-> 1045         response.begin()
+   1046         assert response.will_close != _UNKNOWN
+   1047         self.__state = _CS_IDLE
+
+/usr/lib/python2.7/httplib.pyc in begin(self)
+    407         # read until we get a non-100 response
+    408         while True:
+--> 409             version, status, reason = self._read_status()
+    410             if status != CONTINUE:
+    411                 break
+
+/usr/lib/python2.7/httplib.pyc in _read_status(self)
+    371             # Presumably, the server closed the connection before
+    372             # sending a valid response.
+--> 373             raise BadStatusLine(line)
+    374         try:
+    375             [version, status, reason] = line.split(None, 2)
+
+BadStatusLine: ''
+
+In [9]: ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+---------------------------------------------------------------------------
+CannotSendRequest                         Traceback (most recent call last)
+<ipython-input-9-75fe11880d25> in <module>()
+----> 1 ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    142 
+    143         """
+--> 144         feed = self.get_spreadsheets_feed()
+    145         for elem in feed.findall(_ns('entry')):
+    146             alter_link = finditem(lambda x: x.get('rel') == 'alternate',
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     69                     request_headers[k] = v
+     70 
+---> 71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+     72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+
+/usr/lib/python2.7/httplib.pyc in request(self, method, url, body, headers)
+    971     def request(self, method, url, body=None, headers={}):
+    972         """Send a complete request to the server."""
+--> 973         self._send_request(method, url, body, headers)
+    974 
+    975     def _set_content_length(self, body):
+
+/usr/lib/python2.7/httplib.pyc in _send_request(self, method, url, body, headers)
+    999             skips['skip_accept_encoding'] = 1
+   1000 
+-> 1001         self.putrequest(method, url, **skips)
+   1002 
+   1003         if body is not None and 'content-length' not in header_names:
+
+/usr/lib/python2.7/httplib.pyc in putrequest(self, method, url, skip_host, skip_accept_encoding)
+    869             self.__state = _CS_REQ_STARTED
+    870         else:
+--> 871             raise CannotSendRequest()
+    872 
+    873         # Save the method we use, we need it later in the response phase
+
+CannotSendRequest: 
+
+In [10]: ggg = g
+
+In [11]: ggg
+Out[11]: <gspread.client.Client at 0x1fec250>
+
+In [12]: g
+Out[12]: <gspread.client.Client at 0x1fec250>
+
+In [13]: dir(g)
+Out[13]: 
+['__class__',
+ '__delattr__',
+ '__dict__',
+ '__doc__',
+ '__format__',
+ '__getattribute__',
+ '__hash__',
+ '__init__',
+ '__module__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_add_xml_header',
+ '_get_auth_token',
+ 'auth',
+ 'del_worksheet',
+ 'get_cells_cell_id_feed',
+ 'get_cells_feed',
+ 'get_feed',
+ 'get_spreadsheets_feed',
+ 'get_worksheets_feed',
+ 'login',
+ 'open',
+ 'open_by_key',
+ 'open_by_url',
+ 'openall',
+ 'post_cells',
+ 'post_feed',
+ 'put_feed',
+ 'session']
+
+In [14]: g.openall()
+---------------------------------------------------------------------------
+CannotSendRequest                         Traceback (most recent call last)
+<ipython-input-14-3d15f82c313e> in <module>()
+----> 1 g.openall()
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in openall(self, title)
+    191 
+    192         """
+--> 193         feed = self.get_spreadsheets_feed()
+    194         result = []
+    195         for elem in feed.findall(_ns('entry')):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     69                     request_headers[k] = v
+     70 
+---> 71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+     72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+
+/usr/lib/python2.7/httplib.pyc in request(self, method, url, body, headers)
+    971     def request(self, method, url, body=None, headers={}):
+    972         """Send a complete request to the server."""
+--> 973         self._send_request(method, url, body, headers)
+    974 
+    975     def _set_content_length(self, body):
+
+/usr/lib/python2.7/httplib.pyc in _send_request(self, method, url, body, headers)
+    999             skips['skip_accept_encoding'] = 1
+   1000 
+-> 1001         self.putrequest(method, url, **skips)
+   1002 
+   1003         if body is not None and 'content-length' not in header_names:
+
+/usr/lib/python2.7/httplib.pyc in putrequest(self, method, url, skip_host, skip_accept_encoding)
+    869             self.__state = _CS_REQ_STARTED
+    870         else:
+--> 871             raise CannotSendRequest()
+    872 
+    873         # Save the method we use, we need it later in the response phase
+
+CannotSendRequest: 
+
+In [15]: g.openall()
+---------------------------------------------------------------------------
+CannotSendRequest                         Traceback (most recent call last)
+<ipython-input-15-3d15f82c313e> in <module>()
+----> 1 g.openall()
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in openall(self, title)
+    191 
+    192         """
+--> 193         feed = self.get_spreadsheets_feed()
+    194         result = []
+    195         for elem in feed.findall(_ns('entry')):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     69                     request_headers[k] = v
+     70 
+---> 71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+     72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+
+/usr/lib/python2.7/httplib.pyc in request(self, method, url, body, headers)
+    971     def request(self, method, url, body=None, headers={}):
+    972         """Send a complete request to the server."""
+--> 973         self._send_request(method, url, body, headers)
+    974 
+    975     def _set_content_length(self, body):
+
+/usr/lib/python2.7/httplib.pyc in _send_request(self, method, url, body, headers)
+    999             skips['skip_accept_encoding'] = 1
+   1000 
+-> 1001         self.putrequest(method, url, **skips)
+   1002 
+   1003         if body is not None and 'content-length' not in header_names:
+
+/usr/lib/python2.7/httplib.pyc in putrequest(self, method, url, skip_host, skip_accept_encoding)
+    869             self.__state = _CS_REQ_STARTED
+    870         else:
+--> 871             raise CannotSendRequest()
+    872 
+    873         # Save the method we use, we need it later in the response phase
+
+CannotSendRequest: 
+
+In [16]: ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+---------------------------------------------------------------------------
+CannotSendRequest                         Traceback (most recent call last)
+<ipython-input-16-75fe11880d25> in <module>()
+----> 1 ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    142 
+    143         """
+--> 144         feed = self.get_spreadsheets_feed()
+    145         for elem in feed.findall(_ns('entry')):
+    146             alter_link = finditem(lambda x: x.get('rel') == 'alternate',
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     69                     request_headers[k] = v
+     70 
+---> 71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+     72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+
+/usr/lib/python2.7/httplib.pyc in request(self, method, url, body, headers)
+    971     def request(self, method, url, body=None, headers={}):
+    972         """Send a complete request to the server."""
+--> 973         self._send_request(method, url, body, headers)
+    974 
+    975     def _set_content_length(self, body):
+
+/usr/lib/python2.7/httplib.pyc in _send_request(self, method, url, body, headers)
+    999             skips['skip_accept_encoding'] = 1
+   1000 
+-> 1001         self.putrequest(method, url, **skips)
+   1002 
+   1003         if body is not None and 'content-length' not in header_names:
+
+/usr/lib/python2.7/httplib.pyc in putrequest(self, method, url, skip_host, skip_accept_encoding)
+    869             self.__state = _CS_REQ_STARTED
+    870         else:
+--> 871             raise CannotSendRequest()
+    872 
+    873         # Save the method we use, we need it later in the response phase
+
+CannotSendRequest: 
+
+In [17]: ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+---------------------------------------------------------------------------
+CannotSendRequest                         Traceback (most recent call last)
+<ipython-input-17-75fe11880d25> in <module>()
+----> 1 ggg = g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in open_by_key(self, key)
+    142 
+    143         """
+--> 144         feed = self.get_spreadsheets_feed()
+    145         for elem in feed.findall(_ns('entry')):
+    146             alter_link = finditem(lambda x: x.get('rel') == 'alternate',
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/client.pyc in get_spreadsheets_feed(self, visibility, projection)
+    206                             visibility=visibility, projection=projection)
+    207 
+--> 208         r = self.session.get(url)
+    209         return ElementTree.fromstring(r.read())
+    210 
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in get(self, url, **kwargs)
+     77 
+     78     def get(self, url, **kwargs):
+---> 79         return self.request('GET', url, **kwargs)
+     80 
+     81     def delete(self, url, **kwargs):
+
+/usr/local/lib/python2.7/dist-packages/gspread-0.2.1-py2.7.egg/gspread/httpsession.pyc in request(self, method, url, data, headers)
+     69                     request_headers[k] = v
+     70 
+---> 71         self.connections[uri.scheme+uri.netloc].request(method, url, data, headers=request_headers)
+     72         response = self.connections[uri.scheme+uri.netloc].getresponse()
+     73 
+
+/usr/lib/python2.7/httplib.pyc in request(self, method, url, body, headers)
+    971     def request(self, method, url, body=None, headers={}):
+    972         """Send a complete request to the server."""
+--> 973         self._send_request(method, url, body, headers)
+    974 
+    975     def _set_content_length(self, body):
+
+/usr/lib/python2.7/httplib.pyc in _send_request(self, method, url, body, headers)
+    999             skips['skip_accept_encoding'] = 1
+   1000 
+-> 1001         self.putrequest(method, url, **skips)
+   1002 
+   1003         if body is not None and 'content-length' not in header_names:
+
+/usr/lib/python2.7/httplib.pyc in putrequest(self, method, url, skip_host, skip_accept_encoding)
+    869             self.__state = _CS_REQ_STARTED
+    870         else:
+--> 871             raise CannotSendRequest()
+    872 
+    873         # Save the method we use, we need it later in the response phase
+
+CannotSendRequest: 
+
+In [18]: ggg g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+  File "<ipython-input-18-386832bbf9b7>", line 1
+    ggg g.open_by_key('0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE')
+        ^
+SyntaxError: invalid syntax
+
+
+In [19]: g
+Out[19]: <gspread.client.Client at 0x1fec250>
+
+In [20]: dir(g)
+Out[20]: 
+['__class__',
+ '__delattr__',
+ '__dict__',
+ '__doc__',
+ '__format__',
+ '__getattribute__',
+ '__hash__',
+ '__init__',
+ '__module__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_add_xml_header',
+ '_get_auth_token',
+ 'auth',
+ 'del_worksheet',
+ 'get_cells_cell_id_feed',
+ 'get_cells_feed',
+ 'get_feed',
+ 'get_spreadsheets_feed',
+ 'get_worksheets_feed',
+ 'login',
+ 'open',
+ 'open_by_key',
+ 'open_by_url',
+ 'openall',
+ 'post_cells',
+ 'post_feed',
+ 'put_feed',
+ 'session']
+
+In [21]: l
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-21-12f54a96f644> in <module>()
+----> 1 l
+
+NameError: name 'l' is not defined
+
+In [22]: g = gs.login('gd.ghost.winner@gmail.com', 'angnjvaeodhirdds')
+
+In [23]: ggg = g.open_by_key('0AhEvf8NYA2I1dDBDY2ZYcXVGcXAyZkRMQlpzOU1fd3c')
+
+In [24]: ggg
+Out[24]: <gspread.models.Spreadsheet at 0x2066190>
+
+In [25]: ggg.
+ggg.add_worksheet  ggg.del_worksheet  ggg.get_worksheet  ggg.sheet1         ggg.worksheets     
+ggg.client         ggg.get_id_fields  ggg.id             ggg.worksheet      
+
+In [25]: ggg.
+ggg.add_worksheet  ggg.del_worksheet  ggg.get_worksheet  ggg.sheet1         ggg.worksheets     
+ggg.client         ggg.get_id_fields  ggg.id             ggg.worksheet      
+
+In [25]: ggg.sheet1.
+ggg.sheet1.acell            ggg.sheet1.col_count        ggg.sheet1.get_all_values   ggg.sheet1.row_count        ggg.sheet1.update_cells
+ggg.sheet1.add_cols         ggg.sheet1.col_values       ggg.sheet1.get_id_fields    ggg.sheet1.row_values       ggg.sheet1.updated
+ggg.sheet1.add_rows         ggg.sheet1.find             ggg.sheet1.get_int_addr     ggg.sheet1.spreadsheet      ggg.sheet1.version
+ggg.sheet1.append_row       ggg.sheet1.findall          ggg.sheet1.id               ggg.sheet1.title            
+ggg.sheet1.cell             ggg.sheet1.get_addr_int     ggg.sheet1.range            ggg.sheet1.update_acell     
+ggg.sheet1.client           ggg.sheet1.get_all_records  ggg.sheet1.resize           ggg.sheet1.update_cell      
+
+In [25]: ggg.sheet1.
+ggg.sheet1.acell            ggg.sheet1.col_count        ggg.sheet1.get_all_values   ggg.sheet1.row_count        ggg.sheet1.update_cells
+ggg.sheet1.add_cols         ggg.sheet1.col_values       ggg.sheet1.get_id_fields    ggg.sheet1.row_values       ggg.sheet1.updated
+ggg.sheet1.add_rows         ggg.sheet1.find             ggg.sheet1.get_int_addr     ggg.sheet1.spreadsheet      ggg.sheet1.version
+ggg.sheet1.append_row       ggg.sheet1.findall          ggg.sheet1.id               ggg.sheet1.title            
+ggg.sheet1.cell             ggg.sheet1.get_addr_int     ggg.sheet1.range            ggg.sheet1.update_acell     
+ggg.sheet1.client           ggg.sheet1.get_all_records  ggg.sheet1.resize           ggg.sheet1.update_cell      
+
+In [25]: ggg.sheet1.
+ggg.sheet1.acell            ggg.sheet1.col_count        ggg.sheet1.get_all_values   ggg.sheet1.row_count        ggg.sheet1.update_cells
+ggg.sheet1.add_cols         ggg.sheet1.col_values       ggg.sheet1.get_id_fields    ggg.sheet1.row_values       ggg.sheet1.updated
+ggg.sheet1.add_rows         ggg.sheet1.find             ggg.sheet1.get_int_addr     ggg.sheet1.spreadsheet      ggg.sheet1.version
+ggg.sheet1.append_row       ggg.sheet1.findall          ggg.sheet1.id               ggg.sheet1.title            
+ggg.sheet1.cell             ggg.sheet1.get_addr_int     ggg.sheet1.range            ggg.sheet1.update_acell     
+ggg.sheet1.client           ggg.sheet1.get_all_records  ggg.sheet1.resize           ggg.sheet1.update_cell      
+
+In [25]: ggg.sheet1.row
+ggg.sheet1.row_count   ggg.sheet1.row_values  
+
+In [25]: ggg.sheet1.row_values("b")
+Out[25]: []
+
+In [26]: ggg.sheet1.row_values("B")
+Out[26]: []
+
+In [27]: ggg.sheet1.row_values("1")
+Out[27]: []
+
+In [28]: ggg.sheet1.row_values(1)
+Out[28]: 
+['Timestamp',
+ u'\u0447\u0438\u0441\u043b\u043e \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u0443\u0436\u0435 "\u043f\u043e\u0443\u0447\u0430\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u043e \u0432 \u043a\u043e\u043d\u043a\u0443\u0440\u0441\u0435"']
+
+In [29]: ggg.sheet1.row_values(2)
+Out[29]: ['5/30/2014 6:11:43', '124, 342, 3542']
+
+In [30]: ggg.sheet1.
+ggg.sheet1.acell            ggg.sheet1.col_count        ggg.sheet1.get_all_values   ggg.sheet1.row_count        ggg.sheet1.update_cells
+ggg.sheet1.add_cols         ggg.sheet1.col_values       ggg.sheet1.get_id_fields    ggg.sheet1.row_values       ggg.sheet1.updated
+ggg.sheet1.add_rows         ggg.sheet1.find             ggg.sheet1.get_int_addr     ggg.sheet1.spreadsheet      ggg.sheet1.version
+ggg.sheet1.append_row       ggg.sheet1.findall          ggg.sheet1.id               ggg.sheet1.title            
+ggg.sheet1.cell             ggg.sheet1.get_addr_int     ggg.sheet1.range            ggg.sheet1.update_acell     
+ggg.sheet1.client           ggg.sheet1.get_all_records  ggg.sheet1.resize           ggg.sheet1.update_cell      
+
+In [30]: ggg.sheet1.
+ggg.sheet1.acell            ggg.sheet1.col_count        ggg.sheet1.get_all_values   ggg.sheet1.row_count        ggg.sheet1.update_cells
+ggg.sheet1.add_cols         ggg.sheet1.col_values       ggg.sheet1.get_id_fields    ggg.sheet1.row_values       ggg.sheet1.updated
+ggg.sheet1.add_rows         ggg.sheet1.find             ggg.sheet1.get_int_addr     ggg.sheet1.spreadsheet      ggg.sheet1.version
+ggg.sheet1.append_row       ggg.sheet1.findall          ggg.sheet1.id               ggg.sheet1.title            
+ggg.sheet1.cell             ggg.sheet1.get_addr_int     ggg.sheet1.range            ggg.sheet1.update_acell     
+ggg.sheet1.client           ggg.sheet1.get_all_records  ggg.sheet1.resize           ggg.sheet1.update_cell      
+
+In [30]: ggg.sheet1.col
+ggg.sheet1.col_count   ggg.sheet1.col_values  
+
+In [30]: ggg.sheet1.col_values("b")
+Out[30]: []
+
+In [31]: ggg.sheet1.col_values("B")
+Out[31]: []
+
+In [32]: ggg.sheet1.col_values("A")
+Out[32]: []
+
+In [33]: ggg.sheet1.col_values("2")
+Out[33]: []
+
+In [34]: ggg.sheet1.col_values(2)
+Out[34]: 
+[u'\u0447\u0438\u0441\u043b\u043e \u043a\u043e\u0442\u043e\u0440\u043e\u0435 \u0443\u0436\u0435 "\u043f\u043e\u0443\u0447\u0430\u0441\u0442\u0432\u043e\u0432\u0430\u043b\u043e \u0432 \u043a\u043e\u043d\u043a\u0443\u0440\u0441\u0435"',
+ '124, 342, 3542',
+ '124, 342, 3542',
+ '124, 342, 3542']
+
+In [35]: ggg.sheet1.col_values(2)[1:]
+Out[35]: ['124, 342, 3542', '124, 342, 3542', '124, 342, 3542']
+
+In [36]: ggg.sheet1.col_values(2)[1:]
