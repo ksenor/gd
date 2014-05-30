@@ -1,0 +1,615 @@
+ks@ks-work:~$ sudo apt-cache search python | grep twitter
+[sudo] password for ks: 
+python-twitter - Twitter API wrapper for Python
+ks@ks-work:~$ sudo apt-get install python-twitter
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  libunistring0:i386 linux-headers-3.2.0-53 linux-headers-3.2.0-48
+  linux-headers-3.2.0-54 linux-headers-3.2.0-60 linux-headers-3.2.0-55
+  linux-headers-3.2.0-56 linux-headers-3.2.0-57 linux-headers-3.2.0-58
+  linux-headers-3.2.0-59 linux-headers-3.2.0-60-generic
+  linux-headers-3.2.0-55-generic libgomp1:i386 linux-headers-3.2.0-58-generic
+  linux-headers-3.2.0-53-generic linux-headers-3.2.0-48-generic libcroco3:i386
+  linux-headers-3.2.0-56-generic libgettextpo0:i386
+  linux-headers-3.2.0-59-generic openjdk-7-jre-lib
+  linux-headers-3.2.0-54-generic linux-headers-3.2.0-57-generic
+Use 'apt-get autoremove' to remove them.
+The following NEW packages will be installed:
+  python-twitter
+0 upgraded, 1 newly installed, 0 to remove and 132 not upgraded.
+Need to get 30.0 kB of archives.
+After this operation, 270 kB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu/ precise/universe python-twitter all 0.6-1ubuntu2 [30.0 kB]
+44% [1 python-twitter 13.2 kB/30.0 kB 44%]
+Fetched 30.0 kB in 0s (39.8 kB/s)         
+Selecting previously unselected package python-twitter.
+(Reading database ... 615900 files and directories currently installed.)
+Unpacking python-twitter (from .../python-twitter_0.6-1ubuntu2_all.deb) ...
+Processing triggers for man-db ...
+Setting up python-twitter (0.6-1ubuntu2) ...
+Processing triggers for python-support ...
+ks@ks-work:~$ py
+Python 2.7.3 (default, Feb 27 2014, 19:58:35) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.12.1 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: import rwitter
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+/home/ks/<ipython-input-1-1c6754999483> in <module>()
+----> 1 import rwitter
+
+ImportError: No module named rwitter
+
+In [2]: import twitter
+
+In [3]: api = twitter.Api()
+
+In [4]: api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-4-5c5495e7bbcc> in <module>()
+----> 1 api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22')
+
+TypeError: __init__() got an unexpected keyword argument 'consumer_key'
+
+In [5]: api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-5-5c5495e7bbcc> in <module>()
+----> 1 api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22')
+
+TypeError: __init__() got an unexpected keyword argument 'consumer_key'
+
+In [6]: api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22', consumer_secret='BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', access_token_key='2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', access_token_secret='4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-6-736aadc02ed5> in <module>()
+----> 1 api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22', consumer_secret='BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', access_token_key='2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', access_token_secret='4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')
+
+TypeError: __init__() got an unexpected keyword argument 'access_token_key'
+
+In [7]: api = twitter.Api('BfHofrv3gmOOMBe04ip6wXi22', 'BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', '2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', '4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-7-ee26449b4473> in <module>()
+----> 1 api = twitter.Api('BfHofrv3gmOOMBe04ip6wXi22', 'BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', '2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', '4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')
+
+/usr/lib/pymodules/python2.7/twitter.pyc in __init__(self, username, password, input_encoding, request_headers)
+   1297     self._cache_timeout = Api.DEFAULT_CACHE_TIMEOUT
+   1298     self._InitializeRequestHeaders(request_headers)
+-> 1299     self._InitializeUserAgent()
+   1300     self._InitializeDefaultParameters()
+   1301     self._input_encoding = input_encoding
+
+/usr/lib/pymodules/python2.7/twitter.pyc in _InitializeUserAgent(self)
+   1898     user_agent = 'Python-urllib/%s (python-twitter/%s)' % \
+   1899                  (self._urllib.__version__, __version__)
+-> 1900     self.SetUserAgent(user_agent)
+   1901 
+   1902   def _InitializeDefaultParameters(self):
+
+/usr/lib/pymodules/python2.7/twitter.pyc in SetUserAgent(self, user_agent)
+   1831       user_agent: a string that should be send to the server as the User-agent
+   1832     '''
+-> 1833     self._request_headers['User-Agent'] = user_agent
+   1834 
+   1835   def SetXTwitterHeaders(self, client, url, version):
+
+TypeError: 'str' object does not support item assignment
+
+In [8]: api = twitter.Api('BfHofrv3gmOOMBe04ip6wXi22', 'BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9')
+
+In [9]: api
+Out[9]: <twitter.Api at 0x233fad0>
+
+In [10]: api.VerifyCredentials()\
+   ....: ;
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+/home/ks/<ipython-input-10-73a50226d391> in <module>()
+----> 1 api.VerifyCredentials()\
+      2 ;
+
+AttributeError: 'Api' object has no attribute 'VerifyCredentials'
+
+In [11]: api.VerifyCredentials()
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+/home/ks/<ipython-input-11-143c8abb8d89> in <module>()
+----> 1 api.VerifyCredentials()
+
+AttributeError: 'Api' object has no attribute 'VerifyCredentials'
+
+In [12]: dir(api)
+Out[12]: 
+['ClearCredentials',
+ 'CreateFavorite',
+ 'CreateFriendship',
+ 'DEFAULT_CACHE_TIMEOUT',
+ 'DestroyDirectMessage',
+ 'DestroyFavorite',
+ 'DestroyFriendship',
+ 'DestroyStatus',
+ 'GetDirectMessages',
+ 'GetFeatured',
+ 'GetFollowers',
+ 'GetFriends',
+ 'GetFriendsTimeline',
+ 'GetPublicTimeline',
+ 'GetReplies',
+ 'GetStatus',
+ 'GetUser',
+ 'GetUserByEmail',
+ 'GetUserTimeline',
+ 'PostDirectMessage',
+ 'PostUpdate',
+ 'PostUpdates',
+ 'SetCache',
+ 'SetCacheTimeout',
+ 'SetCredentials',
+ 'SetSource',
+ 'SetUrllib',
+ 'SetUserAgent',
+ 'SetXTwitterHeaders',
+ '_API_REALM',
+ '_AddAuthorizationHeader',
+ '_BuildUrl',
+ '_CheckForTwitterError',
+ '_Encode',
+ '_EncodeParameters',
+ '_EncodePostData',
+ '_FetchUrl',
+ '_GetOpener',
+ '_InitializeDefaultParameters',
+ '_InitializeRequestHeaders',
+ '_InitializeUserAgent',
+ '_RemoveAuthorizationHeader',
+ '__class__',
+ '__delattr__',
+ '__dict__',
+ '__doc__',
+ '__format__',
+ '__getattribute__',
+ '__hash__',
+ '__init__',
+ '__module__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_cache',
+ '_cache_timeout',
+ '_default_params',
+ '_input_encoding',
+ '_password',
+ '_request_headers',
+ '_urllib',
+ '_username']
+
+In [13]: api.GetUser
+Out[13]: <bound method Api.GetUser of <twitter.Api object at 0x233fad0>>
+
+In [14]: api.GetUser()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-14-0a0251441faa> in <module>()
+----> 1 api.GetUser()
+
+TypeError: GetUser() takes exactly 2 arguments (1 given)
+
+In [15]: api.VerifyCredentials()api.VerifyCredentials()api.GetFriends()
+  File "<ipython-input-15-4df2a5fc82e8>", line 1
+    api.VerifyCredentials()api.VerifyCredentials()api.GetFriends()
+                             ^
+SyntaxError: invalid syntax
+
+
+In [16]: api.GetFriends()
+---------------------------------------------------------------------------
+HTTPError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-16-c86f92bb6034> in <module>()
+----> 1 api.GetFriends()
+
+/usr/lib/pymodules/python2.7/twitter.pyc in GetFriends(self, user, page)
+   1579     if page:
+   1580       parameters['page'] = page
+-> 1581     json = self._FetchUrl(url, parameters=parameters)
+   1582     data = simplejson.loads(json)
+   1583     self._CheckForTwitterError(data)
+
+/usr/lib/pymodules/python2.7/twitter.pyc in _FetchUrl(self, url, post_data, parameters, no_cache)
+   2028       # If the cached version is outdated then fetch another and store it
+
+   2029       if not last_cached or time.time() >= last_cached + self._cache_timeout:
+-> 2030         url_data = opener.open(url, encoded_post_data).read()
+   2031         opener.close()
+   2032         self._cache.Set(key, url_data)
+
+/usr/lib/python2.7/urllib2.pyc in open(self, fullurl, data, timeout)
+    404         for processor in self.process_response.get(protocol, []):
+    405             meth = getattr(processor, meth_name)
+--> 406             response = meth(req, response)
+    407 
+    408         return response
+
+/usr/lib/python2.7/urllib2.pyc in http_response(self, request, response)
+    517         if not (200 <= code < 300):
+    518             response = self.parent.error(
+--> 519                 'http', request, response, code, msg, hdrs)
+    520 
+    521         return response
+
+/usr/lib/python2.7/urllib2.pyc in error(self, proto, *args)
+    436             http_err = 0
+    437         args = (dict, proto, meth_name) + args
+--> 438         result = self._call_chain(*args)
+    439         if result:
+    440             return result
+
+/usr/lib/python2.7/urllib2.pyc in _call_chain(self, chain, kind, meth_name, *args)
+    376             func = getattr(handler, meth_name)
+    377 
+--> 378             result = func(*args)
+    379             if result is not None:
+    380                 return result
+
+/usr/lib/python2.7/urllib2.pyc in http_error_302(self, req, fp, code, msg, headers)
+    623         fp.close()
+    624 
+--> 625         return self.parent.open(new, timeout=req.timeout)
+    626 
+    627     http_error_301 = http_error_303 = http_error_307 = http_error_302
+
+/usr/lib/python2.7/urllib2.pyc in open(self, fullurl, data, timeout)
+    404         for processor in self.process_response.get(protocol, []):
+    405             meth = getattr(processor, meth_name)
+--> 406             response = meth(req, response)
+    407 
+    408         return response
+
+/usr/lib/python2.7/urllib2.pyc in http_response(self, request, response)
+    517         if not (200 <= code < 300):
+    518             response = self.parent.error(
+--> 519                 'http', request, response, code, msg, hdrs)
+    520 
+    521         return response
+
+/usr/lib/python2.7/urllib2.pyc in error(self, proto, *args)
+    442         if http_err:
+    443             args = (dict, 'default', 'http_error_default') + orig_args
+--> 444             return self._call_chain(*args)
+    445 
+    446 # XXX probably also want an abstract factory that knows when it makes
+
+
+/usr/lib/python2.7/urllib2.pyc in _call_chain(self, chain, kind, meth_name, *args)
+    376             func = getattr(handler, meth_name)
+    377 
+--> 378             result = func(*args)
+    379             if result is not None:
+    380                 return result
+
+/usr/lib/python2.7/urllib2.pyc in http_error_default(self, req, fp, code, msg, hdrs)
+    525 class HTTPDefaultErrorHandler(BaseHandler):
+    526     def http_error_default(self, req, fp, code, msg, hdrs):
+--> 527         raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+    528 
+    529 class HTTPRedirectHandler(BaseHandler):
+
+HTTPError: HTTP Error 401: Unauthorized
+
+In [17]: api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22', consumer_secret='BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', access_token_key='2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', access_token_secret='4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/ks/<ipython-input-17-736aadc02ed5> in <module>()
+----> 1 api = twitter.Api(consumer_key='BfHofrv3gmOOMBe04ip6wXi22', consumer_secret='BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', access_token_key='2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', access_token_secret='4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7')
+
+TypeError: __init__() got an unexpected keyword argument 'access_token_key'
+
+In [18]: import tweepy
+
+In [19]: consumer_key, consumer_secret, access_token, access_token_secret = 'BfHofrv3gmOOMBe04ip6wXi22', 'BsqlUapmXyq9t10ebaKtWQTox2P6FhrRCJq9N0SWrzoNKISVO9', '2534651012-9wM0uW6gS4dz6jJ56COUmxqWNwxJDwyuzaBtR0z', '4tafMMlIBVQBkiIoWrP8vevFxRT1Ven0PNvGASedau9v7'
+
+In [20]: auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+
+In [21]: auth.set_access_token(access_token, access_token_secret)
+
+In [22]: api = tweepy.API(auth)
+
+In [23]: public_tweets = api.home_timeline()
+
+In [24]: public_tweets
+Out[24]: [Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)]
+
+In [25]: for tweet in public_tweets:
+   ....:         print tweet.text
+   ....:     
+I should win.
+
+In [26]: len(public_tweets)
+Out[26]: 1
+
+In [27]: filter ( lambda x: x.screen_name='gd_ghost', public_tweets )
+  File "<ipython-input-27-132498018bfc>", line 1
+SyntaxError: lambda cannot contain assignment
+
+
+In [28]: my_tweets = [ x for x.screen_name='gd_ghost' in public_tweets ]
+  File "<ipython-input-28-8c5254dc26a6>", line 1
+    my_tweets = [ x for x.screen_name='gd_ghost' in public_tweets ]
+                                     ^
+SyntaxError: invalid syntax
+
+
+In [29]: my_tweets = [ x for x.screen_name=='gd_ghost' in public_tweets ]
+  File "<ipython-input-29-86aa6bae91b1>", line 1
+    my_tweets = [ x for x.screen_name=='gd_ghost' in public_tweets ]
+                                      ^
+SyntaxError: invalid syntax
+
+
+In [30]: my_tweets = filter ( lambda x: x.screen_name == 'gd_ghost', public_tweets )
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+/home/ks/<ipython-input-30-251e7c485bce> in <module>()
+----> 1 my_tweets = filter ( lambda x: x.screen_name == 'gd_ghost', public_tweets )
+
+/home/ks/<ipython-input-30-251e7c485bce> in <lambda>(x)
+----> 1 my_tweets = filter ( lambda x: x.screen_name == 'gd_ghost', public_tweets )
+
+AttributeError: 'Status' object has no attribute 'screen_name'
+
+In [31]: public_tweets[1]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+/home/ks/<ipython-input-31-b45c26741342> in <module>()
+----> 1 public_tweets[1]
+
+IndexError: list index out of range
+
+In [32]: public_tweets
+Out[32]: [Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)]
+
+In [33]: dir(public_tweets)
+Out[33]: 
+['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+ '__delitem__',
+ '__delslice__',
+ '__dict__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__getslice__',
+ '__gt__',
+ '__hash__',
+ '__iadd__',
+ '__imul__',
+ '__init__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__module__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__reversed__',
+ '__rmul__',
+ '__setattr__',
+ '__setitem__',
+ '__setslice__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_max_id',
+ '_since_id',
+ 'append',
+ 'count',
+ 'extend',
+ 'ids',
+ 'index',
+ 'insert',
+ 'max_id',
+ 'pop',
+ 'remove',
+ 'reverse',
+ 'since_id',
+ 'sort']
+
+In [34]: public_tweets.pop()
+Out[34]: Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)
+
+In [35]: public_tweets
+Out[35]: []
+
+In [36]: public_tweets = api.home_timeline()
+
+In [37]: pt = public_tweets.pop()
+
+In [38]: pt
+Out[38]: Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)
+
+In [39]: dir(pt)
+Out[39]: 
+['__class__',
+ '__delattr__',
+ '__dict__',
+ '__doc__',
+ '__format__',
+ '__getattribute__',
+ '__getstate__',
+ '__hash__',
+ '__init__',
+ '__module__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_api',
+ '_json',
+ 'author',
+ 'contributors',
+ 'coordinates',
+ 'created_at',
+ 'destroy',
+ 'entities',
+ 'favorite',
+ 'favorite_count',
+ 'favorited',
+ 'geo',
+ 'id',
+ 'id_str',
+ 'in_reply_to_screen_name',
+ 'in_reply_to_status_id',
+ 'in_reply_to_status_id_str',
+ 'in_reply_to_user_id',
+ 'in_reply_to_user_id_str',
+ 'lang',
+ 'parse',
+ 'parse_list',
+ 'place',
+ 'retweet',
+ 'retweet_count',
+ 'retweeted',
+ 'retweets',
+ 'source',
+ 'source_url',
+ 'text',
+ 'truncated',
+ 'user']
+
+In [40]: pt.user
+Out[40]: User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False)
+
+In [41]: dir(pt.user)
+Out[41]: 
+['__class__',
+ '__delattr__',
+ '__dict__',
+ '__doc__',
+ '__format__',
+ '__getattribute__',
+ '__getstate__',
+ '__hash__',
+ '__init__',
+ '__module__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ '_api',
+ '_json',
+ 'contributors_enabled',
+ 'created_at',
+ 'default_profile',
+ 'default_profile_image',
+ 'description',
+ 'entities',
+ 'favourites_count',
+ 'follow',
+ 'follow_request_sent',
+ 'followers',
+ 'followers_count',
+ 'followers_ids',
+ 'following',
+ 'friends',
+ 'friends_count',
+ 'geo_enabled',
+ 'id',
+ 'id_str',
+ 'is_translation_enabled',
+ 'is_translator',
+ 'lang',
+ 'listed_count',
+ 'lists',
+ 'lists_memberships',
+ 'lists_subscriptions',
+ 'location',
+ 'name',
+ 'notifications',
+ 'parse',
+ 'parse_list',
+ 'profile_background_color',
+ 'profile_background_image_url',
+ 'profile_background_image_url_https',
+ 'profile_background_tile',
+ 'profile_banner_url',
+ 'profile_image_url',
+ 'profile_image_url_https',
+ 'profile_link_color',
+ 'profile_sidebar_border_color',
+ 'profile_sidebar_fill_color',
+ 'profile_text_color',
+ 'profile_use_background_image',
+ 'protected',
+ 'screen_name',
+ 'statuses_count',
+ 'time_zone',
+ 'timeline',
+ 'unfollow',
+ 'url',
+ 'utc_offset',
+ 'verified']
+
+In [42]: pt.user.name
+Out[42]: 'Gd Winner'
+
+In [43]: mt = filter ( lambda x: x.user.name == 'Gd Winner', public_tweets )
+
+In [44]: mt
+Out[44]: []
+
+In [45]: public_tweets = api.home_timeline()
+
+In [46]: mt = filter ( lambda x: x.user.name == 'Gd Winner', public_tweets )
+
+In [47]: mt
+Out[47]: [Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)]
+
+In [48]: mt[1]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+/home/ks/<ipython-input-48-3cb5ae6afada> in <module>()
+----> 1 mt[1]
+
+IndexError: list index out of range
+
+In [49]: mt
+Out[49]: [Status(contributors=None, truncated=False, text='I should win.', in_reply_to_status_id=None, id=472325226890821632, favorite_count=0, _api=<tweepy.api.API object at 0x2440410>, author=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), _json={'contributors': None, 'truncated': False, 'text': 'I should win.', 'in_reply_to_status_id': None, 'id': 472325226890821632, 'favorite_count': 0, 'source': 'web', 'retweeted': False, 'coordinates': None, 'entities': {'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, 'in_reply_to_screen_name': None, 'id_str': '472325226890821632', 'retweet_count': 0, 'in_reply_to_user_id': None, 'favorited': False, 'user': {'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, 'geo': None, 'in_reply_to_user_id_str': None, 'lang': 'en', 'created_at': 'Fri May 30 10:34:44 +0000 2014', 'in_reply_to_status_id_str': None, 'place': None}, coordinates=None, entities={'symbols': [], 'user_mentions': [], 'hashtags': [], 'urls': []}, in_reply_to_screen_name=None, id_str='472325226890821632', retweet_count=0, in_reply_to_user_id=None, favorited=False, source_url=None, user=User(follow_request_sent=False, profile_use_background_image=True, _json={'follow_request_sent': False, 'profile_use_background_image': True, 'default_profile_image': False, 'id': 2534651012, 'profile_background_image_url_https': 'https://abs.twimg.com/images/themes/theme1/bg.png', 'verified': False, 'profile_text_color': '333333', 'profile_image_url_https': 'https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'profile_sidebar_fill_color': 'DDEEF6', 'entities': {'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, 'followers_count': 0, 'profile_sidebar_border_color': 'C0DEED', 'id_str': '2534651012', 'profile_background_color': 'C0DEED', 'listed_count': 0, 'is_translation_enabled': False, 'utc_offset': None, 'statuses_count': 1, 'description': '666', 'friends_count': 0, 'location': 'Nowhere', 'profile_link_color': '0084B4', 'profile_image_url': 'http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', 'following': False, 'geo_enabled': False, 'profile_banner_url': 'https://pbs.twimg.com/profile_banners/2534651012/1401442265', 'profile_background_image_url': 'http://abs.twimg.com/images/themes/theme1/bg.png', 'screen_name': 'gd_ghost', 'lang': 'en', 'profile_background_tile': False, 'favourites_count': 0, 'name': 'Gd Winner', 'notifications': False, 'url': 'https://t.co/Yeeeuy0GJG', 'created_at': 'Fri May 30 09:18:45 +0000 2014', 'contributors_enabled': False, 'time_zone': None, 'protected': False, 'default_profile': True, 'is_translator': False}, time_zone=None, id=2534651012, _api=<tweepy.api.API object at 0x2440410>, verified=False, profile_text_color='333333', profile_image_url_https='https://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', profile_sidebar_fill_color='DDEEF6', is_translator=False, geo_enabled=False, entities={'url': {'urls': [{'url': 'https://t.co/Yeeeuy0GJG', 'indices': [0, 23], 'expanded_url': 'https://github.com/ksenor/gd', 'display_url': 'github.com/ksenor/gd'}]}, 'description': {'urls': []}}, followers_count=0, protected=False, id_str='2534651012', default_profile_image=False, listed_count=0, lang='en', utc_offset=None, statuses_count=1, description='666', friends_count=0, profile_link_color='0084B4', profile_image_url='http://pbs.twimg.com/profile_images/472308163971018753/zbCCTPvm_normal.jpeg', notifications=False, profile_background_image_url_https='https://abs.twimg.com/images/themes/theme1/bg.png', profile_background_color='C0DEED', profile_banner_url='https://pbs.twimg.com/profile_banners/2534651012/1401442265', profile_background_image_url='http://abs.twimg.com/images/themes/theme1/bg.png', name='Gd Winner', is_translation_enabled=False, profile_background_tile=False, favourites_count=0, screen_name='gd_ghost', url='https://t.co/Yeeeuy0GJG', created_at=datetime.datetime(2014, 5, 30, 9, 18, 45), contributors_enabled=False, location='Nowhere', profile_sidebar_border_color='C0DEED', default_profile=True, following=False), geo=None, in_reply_to_user_id_str=None, lang='en', created_at=datetime.datetime(2014, 5, 30, 10, 34, 44), in_reply_to_status_id_str=None, place=None, source='web', retweeted=False)]
+
+In [50]: mt.pop().text
+Out[50]: 'I should win.'
+
+In [51]: 
