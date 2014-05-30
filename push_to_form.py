@@ -17,7 +17,7 @@ class PushToForm(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "/forms/d/12jtHb2V90VsW-R6VeVyHsiT4RuxAkjYBTNBDJzg6xo0/viewform")
         driver.find_element_by_id("entry_1766025266").clear()
-        driver.find_element_by_id("entry_1766025266").send_keys("124, 342, 3542")
+        driver.find_element_by_id("entry_1766025266").send_keys(POTENTIAL_MONEY)
         driver.find_element_by_id("ss-submit").click()
     
     def is_element_present(self, how, what):
