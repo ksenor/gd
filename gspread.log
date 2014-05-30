@@ -1,0 +1,13 @@
+https://github.com/burnash/gspread
+
+https://docs.google.com/forms/d/12jtHb2V90VsW-R6VeVyHsiT4RuxAkjYBTNBDJzg6xo0/viewform
+
+https://docs.google.com/forms/d/12jtHb2V90VsW-R6VeVyHsiT4RuxAkjYBTNBDJzg6xo0/edit
+
+https://docs.google.com/spreadsheet/ccc?key=0AhEvf8NYA2I1dGhONUhnSG11amxsNF9rcTJlSVZDZVE&usp=drive_web#gid=0
+
+In [2]: import gspread
+
+In [3]: import gspread as gs
+
+In [4]: g = gs.login('')
